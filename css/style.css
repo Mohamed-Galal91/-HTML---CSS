@@ -1,0 +1,716 @@
+@import url('https://fonts.googleapis.com/css2?family=Anaheim&family=Bai+Jamjuree:wght@300;400;600&family=Barlow+Semi+Condensed:wght@500;600&family=Big+Shoulders+Display:wght@700&family=DM+Serif+Display&family=Inter:wght@400;700&family=Karla:wght@300;400;700&family=Khula:wght@300;400;600;700;800&family=Kumbh+Sans:wght@400;700&family=Lexend+Deca&family=Montserrat:wght@100;300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&family=Oswald:wght@200;300;400;500;600;700&family=Outfit:wght@300;400;600;700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Philosopher:wght@700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quattrocento+Sans:wght@400;700&family=Raleway:wght@400;700&family=Readex+Pro:wght@400;500;600&family=Red+Hat+Display:wght@500;700;900&family=Roboto:wght@100;300;400;500;700;900&family=Rubik:wght@400;500;700&family=Saira:wght@100;200;300;400;500;600;700;800&family=Varela+Round&family=Work+Sans:wght@200;300;400;500;600;700;800&display=swap');
+
+/* Start Global Rules */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Readex Pro', sans-serif;
+    direction: rtl;
+    /* background-color: var(--dark-color); */
+}
+html {
+    scroll-behavior: smooth;
+    font-size: 10px;                  
+    overflow-x: hidden;
+}
+@media screen and (max-width: 450px) {
+    html {
+        font-size: 9px;                  
+    }
+}
+
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    outline: none;
+}
+button {
+    cursor: pointer;
+}
+button,
+input {
+    border: none;
+    outline: none;
+}
+
+
+.container {
+    padding: 0 20px;
+    margin: 0 auto;
+}
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+
+.section-heading {
+    text-align: center;
+    color: var(--gray-color);
+    padding-bottom: 4rem;
+}
+.section-heading h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+.section-heading i {
+    font-size: 2.5rem;
+}
+
+
+
+/* End Global Rules */
+
+/* Start Variables */
+:root {
+    --dark-color: #070D1C;
+    --gray-color: #BABCC8;
+    --orange-color: #fb7c32;
+    --white-color: #ffffff;
+    --section-padding: 6rem 0;
+    --main-transition: 0.3s ease-in-out;
+    --main-border-radius: 0.4rem;
+}
+
+/* End Variables */
+
+
+/* ==================================================================================
+Start Header
+==================================================================================   */
+.header {
+    border-bottom: 0.1rem solid var(--gray-color);
+    background-color: var(--dark-color);
+}
+.header .content {
+    min-height: 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .logo a {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--gray-color);
+}
+.header .content .links {
+    display: flex;
+}
+.header .links li {
+    margin: 0 1rem;
+}
+.header .links li a {
+    display: inline-block;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.3rem;
+    color: var(--gray-color);
+    font-weight: bold;
+}
+.header .links li:not(:last-of-type):hover a {
+    background-color: var(--orange-color);
+    border-radius: var(--main-border-radius);
+    -webkit-border-radius: var(--main-border-radius);
+    -moz-border-radius: var(--main-border-radius);
+    -ms-border-radius: var(--main-border-radius);
+    -o-border-radius: var(--main-border-radius);
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+
+#menu {
+    display: none;
+}
+.header .content .toggle {
+    display: none;
+}
+
+
+
+/* ======================================== Media Queries ======================================== */
+@media screen and (max-width: 991px) {
+    .header .content .toggle {
+        position: relative;
+        display: flex;
+        font-size: 2rem;
+        color: var(--gray-color);
+    }
+    .header .content .toggle:hover {
+        cursor: pointer;
+    }
+    .header .content .links {
+        display: none;
+        position: absolute;
+        padding: 2rem 0;
+        flex-direction: column;
+        align-items: center;
+        left: 0;
+        top: 6rem;
+        width: 100%;
+        background-color: var(--gray-color);
+        z-index: 999;
+    }
+    .header #menu:checked ~ .links {
+        display: flex;
+    }
+    .header .content .links li a {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            font-size: 1.6rem;
+            color: var(--dark-color);
+    }
+}
+
+
+
+/* ================================================================================== 
+Start Home
+==================================================================================   */
+.home {
+    background-color: var(--dark-color);
+    padding: var(--section-padding);
+    min-height: calc(100vh - 6.1rem);
+}
+.home .content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+.home .col-r,
+.home .col-l {
+    flex-basis: 50%;
+}
+.home .col-r {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+.home .image img {
+    width: 38rem;
+}
+.home .one img {
+    background-image: linear-gradient(to bottom, #ebedf7, #71747e);
+    padding: 0 5rem 0 5rem;
+    border-radius: 15rem 15rem 0 0;
+    -webkit-border-radius: 15rem 15rem 0 0;
+    -moz-border-radius: 15rem 15rem 0 0;
+    -ms-border-radius: 15rem 15rem 0 0;
+    -o-border-radius: 15rem 15rem 0 0;
+}
+.home .skills a {
+    display: block;
+}
+.home .skills i {
+    font-size: 5.5rem;
+    color: var(--gray-color);
+}
+.home .col-l {
+    text-align: center;
+    color: var(--gray-color);
+}
+.home .col-l span {
+    font-size: 2rem;
+}
+.home .col-l h1 {
+    font-size: 5rem;
+    font-weight: 400;
+    margin: 0;
+    padding-top: 1rem;
+}
+
+
+/* ======================================== Media Queries ======================================== */
+@media screen and (max-width: 991px) {
+    .home .content {
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+    .home .col-r {
+        flex-direction: column-reverse;
+    }
+    .home .image img {
+        width: 26rem;
+        max-width: 100%;
+    }
+    .home .skills {
+        text-align: center;
+    }
+    .home .skills a {
+        display: inline-block;
+    }
+    .home .col-l img {
+        display: none;
+    }
+}
+
+
+
+
+
+/* ================================================================================== 
+Start Country
+==================================================================================   */
+.country {
+    position: relative;
+    background-color: var(--dark-color);
+    padding: var(--section-padding);
+    z-index: 2;
+}
+.country .boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+    gap: 7rem 4rem;
+    text-align: center;
+}
+.country .boxes .box {
+    position: relative;
+    padding: 2rem;
+    background-color: var(--white-color);
+}
+.country .boxes .box::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: var(--white-color);
+    left: 0;
+    top: 1rem;
+    transform: rotate(7deg);
+    -webkit-transform: rotate(7deg);
+    -moz-transform: rotate(7deg);
+    -ms-transform: rotate(7deg);
+    -o-transform: rotate(7deg);
+    z-index: -1;
+}
+.country .box h3 {
+    width: fit-content;
+    margin: auto;
+    padding: 0.5rem 0.8rem;
+    color: var(--dark-color);
+    font-size: 2rem;
+    border: 1px dotted var(--dark-color);
+}
+.country .box p {
+    padding: 1.4rem 0;
+    font-size: 1.2rem;
+}
+.country .box span {
+    color: var(--dark-color);
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 0.5rem 0 1rem;
+    line-height: 1.4;
+}
+.btn {
+    font-size: 1.2rem;
+    padding: 1rem;
+    background-color: var(--orange-color);
+    color: var(--white-color);
+    font-weight: 500;
+    border-radius: 0.3rem;
+    -webkit-border-radius: 0.3rem;
+    -moz-border-radius: 0.3rem;
+    -ms-border-radius: 0.3rem;
+    -o-border-radius: 0.3rem;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+.btn:hover {
+    background-color: var(--dark-color);
+    color: var(--orange-color);
+}
+
+.country .dots {
+    text-align: center;
+    margin-top: 5rem;
+}
+.country .dots span {
+    display: inline-block;
+    background-color: var(--orange-color);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.country .dots span {
+    vertical-align: middle;
+    margin: 0 0.2rem;
+}
+.country .dots .one {
+    width: 0.2rem;
+    height: 0.2rem;
+}
+.country .dots .two {
+    width: 0.4rem;
+    height: 0.4rem;
+}
+.country .dots .three {
+    width: 0.6rem;
+    height: 0.6rem;
+}
+
+
+
+
+
+/* ================================================================================== 
+Start My-work
+==================================================================================   */
+.my-work {
+    background-color: var(--dark-color);
+    padding: var(--section-padding);
+}
+.my-work .links {
+    padding: 1rem;
+    border: 0.1rem solid var(--gray-color);
+    text-align: center;
+}
+.my-work .links a {
+    font-size: 1.4rem;
+    color: var(--gray-color);
+    padding: 1rem 1.6rem;
+}
+.my-work .links .active,
+.my-work .links a:hover {
+    background-color: var(--gray-color);
+    color: var(--dark-color);
+}
+
+.my-work .images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+}
+.my-work .images .box-img {
+    position: relative;
+    overflow: hidden;
+    border: 0.1rem solid var(--gray-color);
+    padding: 1rem;
+}
+.my-work .images .box-img::before {
+    position: absolute;
+    content: '';
+    background-color: #070d1c4e;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+.my-work .images img {
+    vertical-align: middle;
+    width: 100%;
+    max-width: 100%;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+.my-work .images .box-img:hover img {
+    cursor: pointer;
+    transform: rotate(-4deg) scale(1.2);
+    -webkit-transform: rotate(-4deg) scale(1.2);
+    -moz-transform: rotate(-4deg) scale(1.2);
+    -ms-transform: rotate(-4deg) scale(1.2);
+    -o-transform: rotate(-4deg) scale(1.2);
+}
+
+
+/* ======================================== Media Queries ======================================== */
+@media screen and (max-width: 400px) {
+    .my-work .links a {
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+}
+
+
+
+
+
+/* ================================================================================== 
+Start My-photo
+==================================================================================   */
+.my-photo {
+    background-color: var(--dark-color);
+    padding: var(--section-padding);
+}
+.my-photo .images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    gap: 3rem;
+}
+.my-photo .images .img {
+    overflow: hidden;
+    position: relative;
+}
+.my-photo .images .img p {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: var(--gray-color);
+    background-color: #2a2a2c;
+    font-size: 1.6rem;
+    padding: 0.5rem 1rem;
+}
+.my-photo .images img {
+    max-width: 100%;
+}
+
+.my-photo .overlay {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: #070d1c8a;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+}
+.my-photo .images .img:hover .overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.my-photo .images .img div::before,
+.my-photo .images .img div::after {
+    position: absolute;
+    content: '';
+    background-color: rgb(209, 29, 29);
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+.my-photo .images .img div::before {
+    width: 0;
+    height: 0.2rem;
+    right: 0;
+    top: 1.8rem;
+}
+.my-photo .images .img div::after {
+    width: 0.2rem;
+    height: 0;
+    right: 2rem;
+    top: 0;
+}
+.my-photo .images .img:hover div::before {
+    right: 2rem;
+    width: 100%;
+}
+.my-photo .images .img:hover div::after {
+    top: 1.8rem;
+    height: 90%;
+}
+
+.my-photo .images .img::before,
+.my-photo .images .img::after {
+    position: absolute;
+    content: '';
+    background-color: rgb(209, 29, 29);
+    z-index: 3;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+.my-photo .images .img::before {
+    width: 0;
+    height: 0.2rem;
+    left: 0;
+    top: 4.9rem;
+}
+.my-photo .images .img::after {
+    width: 0.2rem;
+    height: 0;
+    top: 4.8rem;
+    right: 9.9rem;
+}
+.my-photo .images .img:hover::before {
+    width: 94.3%;
+}
+.my-photo .images .img:hover::after {
+    height: 5rem;
+    top: 0;
+}
+
+
+
+
+
+/* ================================================================================== 
+Start Articles
+==================================================================================   */
+.articles {
+    background-color: var(--dark-color);
+    padding: var(--section-padding);
+}
+.articles .content {
+    background-color: var(--white-color);
+    padding: 2rem 8rem;
+    width: fit-content;
+    margin: auto;
+    border-radius: 2rem;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
+}
+.articles .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--orange-color);
+    margin-bottom: 4rem;
+}
+.articles .heading h3 {
+    font-size: 1.6rem;
+    text-decoration: underline;
+}
+.articles .heading i {
+    cursor: pointer;
+    font-size: 2rem;
+    padding: 0.5rem;
+    background-color: var(--white-color);
+    box-shadow: 0 0.5rem 0.5rem var(--gray-color);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.articles article h2 {
+    font-size: 2rem;
+    color: var(--dark-color);
+    margin-bottom: 2rem;
+}
+.articles article p {
+    color: var(--dark-color);
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.articles .link {
+    text-align: center;
+    margin-top: 4rem;
+}
+.articles .link .btn:hover {
+    background-color: var(--gray-color);
+
+}
+.articles .link .btn {
+    font-size: 1.6rem;
+}
+
+
+/* ======================================== Media Queries ======================================== */
+@media screen and (max-width: 767px) {
+    .articles .content {
+        padding: 2rem 4rem;
+    }
+}
+
+
+
+
+
+/* ================================================================================== 
+Start 404
+==================================================================================   */
+.error {
+    background-color: var(--dark-color);
+    padding: var(--section-padding);
+    padding: 20rem 0;
+    text-align: center;
+}
+.error .content h2 {
+    font-size: 5rem;
+    color: var(--gray-color);
+}
+.error .content p {
+    font-size: 6rem;
+    color: var(--gray-color);
+    margin-bottom: 4rem;
+}
+.error .content a {
+    font-size: 1.4rem;
+    padding: 1.5rem 19rem;
+    color: var(--white-color);
+    background-color: rgb(209, 29, 29);
+}
+
+
+/* ======================================== Media Queries ======================================== */
+@media screen and (max-width: 767px) {
+    .error .content p {
+        font-size: 4rem;
+    }
+    .error .content a {
+        padding: 1.5rem 10rem;
+    }
+}
+@media screen and (max-width: 400px) {
+    .error .content a {
+        padding: 1.5rem 5rem;
+    }
+}
+
+
+
+
+
+/* ================================================================================== 
+Start Footer
+==================================================================================   */
+.footer {
+    padding: 2rem 0;
+    border-top: 0.1rem solid var(--gray-color);
+    background-color: var(--dark-color);
+    text-align: center;
+}
+.footer p {
+    font-size: 1.4rem;
+    color: var(--gray-color);
+}
+.footer p i {
+    color: rgb(209, 29, 29);
+}
+.footer span:hover {
+    color: var(--white-color);
+    cursor: pointer;
+}
